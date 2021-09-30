@@ -1,0 +1,1261 @@
+components:
+  requestBodies:
+    postCollectorPayload:
+      content:
+        application/json:
+          schema:
+            type: string
+      description: |-
+        The payload uses concatenated JSON format.
+        See https://docs.splunk.com/Documentation/Splunk/latest/Data/FormateventsforHTTPEventCollector#Event_data for more information.
+      x-go-name: Payload
+  responses:
+    badRequestError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: The request isn't valid.
+    errorResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: Error response.
+    fileUploadSuccessResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UploadSuccessResponse'
+      description: The file was uploaded successfully.
+    forbiddenError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: The operation is unauthorized.
+    hecBadRequestError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HECResponse'
+      description: |-
+        The request isn't valid.
+
+        Possible causes are:
+        there is no data
+        the data format is incorrect e.g. not JSON
+        the specified index is invalid
+        the event field is missing or empty
+        the fields property is invalid
+        the event size is too large
+    hecForbiddenError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HECResponse'
+      description: |-
+        The operation is unauthorized.
+
+        Possible causes are the provided token is invalid or disabled.
+    hecInternalError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HECResponse'
+      description: An internal service error occurred.
+    hecSuccessResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HECResponse'
+      description: The events were processed successfully.
+    hecTokenCreateSuccessResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HECTokenCreateResponse'
+      description: The dsphec token was created successfully.
+    hecTokenDeleteSuccessResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HECTokenDeleteResponse'
+      description: The dsphec token was deleted successfully.
+    hecTokenGetSuccessResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HECTokenAccessResponse'
+      description: The dsphec token metadata was returned successfully.
+    hecTokenListSuccessResponse:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/HECTokenAccessResponse'
+            type: array
+      description: The list of dsphec token metadata was returned successfully.
+    hecUnauthorizedError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HECResponse'
+      description: |-
+        Authentication is required.
+
+        Possible causes are the authentication token is missing or the authorization header isn't well formed.
+    internalError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: An internal service error occurred.
+    notFoundError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: The resource wasn't found.
+    resourceConflictError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: The resource has a conflict.
+    serverBusyError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HECResponse'
+      description: The server can't process the data sent because the server is overloaded.
+    successResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPResponse'
+      description: The event was sent successfully.
+    tooManyRequestsError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: Too many requests were sent.
+    unauthorizedError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: The user isn't authenticated.
+    unprocessableEntityError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: Unprocessable entity in request.
+  schemas:
+    Error:
+      properties:
+        code:
+          type: string
+          x-go-name: Code
+        details:
+          type: object
+          x-go-name: Details
+        message:
+          type: string
+          x-go-name: Message
+      type: object
+      x-go-name: ErrorResponse
+    Event:
+      properties:
+        attributes:
+          additionalProperties: {}
+          description: Specifies a JSON object that contains explicit custom fields to be defined at index time.
+          type: object
+          x-go-name: Attributes
+        body:
+          description: The raw event content. It can be a string, number, string array, number array, JSON object, map, list, a JSON array, or a byte array.
+          x-go-name: Body
+        host:
+          description: The host value assigned to the event data. Typically, this is the hostname of the client from which you are sending data.
+          type: string
+          x-go-name: Host
+        id:
+          description: |-
+            An optional ID that uniquely identifies the event data. It is used to deduplicate the data if same data is set multiple times.
+            If ID is not specified, it will be assigned by the system.
+          type: string
+          x-go-name: ID
+        nanos:
+          description: Optional nanoseconds part of the timestamp.
+          format: int32
+          type: integer
+          x-go-name: Nanos
+        source:
+          description: |-
+            The source value to assign to the event data. For example, if you are sending data from an app that you are developing,
+            set this key to the name of the app.
+          type: string
+          x-go-name: Source
+        sourcetype:
+          description: The sourcetype value assigned to the event data.
+          type: string
+          x-go-name: Sourcetype
+        timestamp:
+          description: Epoch time in milliseconds.
+          format: int64
+          type: integer
+          x-go-name: Timestamp
+      required:
+      - body
+      type: object
+    FileUploadDetails:
+      properties:
+        filename:
+          type: string
+          x-go-name: Filename
+      type: object
+    HECResponse:
+      properties:
+        code:
+          description: code defines the status of the response. For a complete list of the possible error codes, see https://docs.splunk.com/Documentation/SplunkCloud/latest/Data/TroubleshootHTTPEventCollector#Possible_error_codes
+          format: int64
+          type: integer
+          x-go-name: Code
+        invalid-event-number:
+          description: invalid-event-number defines the index of the first event in error.
+          format: int64
+          type: integer
+          x-go-name: EventErrorIndex
+        text:
+          description: text describes the response status
+          type: string
+          x-go-name: Message
+      title: HECResponse defines the HTTP response from the HTTP Event Collector service.
+      type: object
+    HECTokenAccessResponse:
+      description: |-
+        GET  /collector/tokens/{tokenName}
+        PUT  /collector/tokens/{tokenName}
+      properties:
+        ack_enabled:
+          description: |-
+            ack_enabled is set to true if events sent with the auth token should support indexer acknowledgement
+
+            type: bool
+          type: boolean
+          x-go-name: AckEnabled
+        allow_query_string_auth:
+          description: |-
+            allow_query_string_auth is set to true if this token can be passed into the ingest endpoint's query parameter for auth
+
+            type: bool
+          type: boolean
+          x-go-name: AllowQueryStringAuth
+        created_at:
+          description: |-
+            created_at is a timestamp that captures when this token was created.
+
+            type: string
+            format: date-time
+          format: date-time
+          type: string
+          x-go-name: CreatedAt
+        created_by:
+          description: |-
+            created_by is the principal that created the token.
+
+            type: string
+          type: string
+          x-go-name: CreatedBy
+        description:
+          description: |-
+            description is an optional description of the token.
+
+            type: string
+          type: string
+          x-go-name: Description
+        disabled:
+          description: |-
+            disabled is set to true if this auth token has been disabled and cannot be used to send events to HECv1
+
+            type: bool
+          type: boolean
+          x-go-name: Disabled
+        index:
+          description: |-
+            index is the default value of the index field for records collected using this token.
+
+            type: string
+          type: string
+          x-go-name: Index
+        indexes:
+          description: |-
+            indexes is a list of index names that this token is allowed to send events to
+
+            type: []string
+          items:
+            type: string
+          type: array
+          x-go-name: Indexes
+        last_modified_at:
+          description: |-
+            last_modified_at is a timestamp that captures when this token was last modified.
+
+            type: string
+            format: date-time
+          format: date-time
+          type: string
+          x-go-name: LastModifiedAt
+        last_modified_by:
+          description: |-
+            last_modified_by is the principal that last modified the token.
+
+            type: string
+          type: string
+          x-go-name: LastModifiedBy
+        name:
+          description: |-
+            name is the name of the token (unique within the tenant that it belongs to).
+
+            type: string
+          pattern: '''[a-z][a-z0-9]{3,35}'''
+          type: string
+          x-go-name: Name
+        source:
+          description: |-
+            source is the default value of the source field for records collected using this token.
+
+            type: string
+          type: string
+          x-go-name: Source
+        sourcetype:
+          description: |-
+            sourcetype is the default value of the sourcetype field for records collected using this token.
+
+            type: string
+          type: string
+          x-go-name: Sourcetype
+        tenant:
+          description: |-
+            tenant is the tenant that this token belongs to
+
+            type: string
+          pattern: '''[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*"'''
+          type: string
+          x-go-name: Tenant
+      title: 'HECTokenAccessResponse defines the response body returned from the HTTP Event Collector token access endpoints:'
+      type: object
+    HECTokenCreateRequest:
+      description: POST  /collector/tokens
+      properties:
+        ack_enabled:
+          description: |-
+            ack_enabled is set to true if events sent with the auth token should support indexer acknowledgement
+
+            type: bool
+          type: boolean
+          x-go-name: AckEnabled
+        allow_query_string_auth:
+          description: |-
+            allow_query_string_auth is set to true if this token can be passed into the ingest endpoint's query parameter for auth
+
+            type: bool
+          type: boolean
+          x-go-name: AllowQueryStringAuth
+        description:
+          description: |-
+            description is an optional description of the token.
+
+            type: string
+          type: string
+          x-go-name: Description
+        disabled:
+          description: |-
+            disabled is set to true if this auth token has been disabled and cannot be used to send events to HECv1
+
+            type: bool
+          type: boolean
+          x-go-name: Disabled
+        index:
+          description: |-
+            index is the default value of the index field for records collected using this token.
+
+            type: string
+          type: string
+          x-go-name: Index
+        indexes:
+          description: |-
+            indexes is a list of index names that this token is allowed to send events to
+
+            type: []string
+          items:
+            type: string
+          type: array
+          x-go-name: Indexes
+        name:
+          description: |-
+            name is the name of the token (unique within the tenant that it belongs to).
+
+            type: string
+          pattern: '''[a-z][a-z0-9]{3,35}'''
+          type: string
+          x-go-name: Name
+        source:
+          description: |-
+            source is the default value of the source field for records collected using this token.
+
+            type: string
+          type: string
+          x-go-name: Source
+        sourcetype:
+          description: |-
+            sourcetype is the default value of the sourcetype field for records collected using this token.
+
+            type: string
+          type: string
+          x-go-name: Sourcetype
+      required:
+      - name
+      title: 'HECTokenCreateRequest defines the request body accepted by the HTTP Event Collector token create endpoint:'
+      type: object
+    HECTokenCreateResponse:
+      description: POST /collector/tokens
+      properties:
+        ack_enabled:
+          description: |-
+            ack_enabled is set to true if events sent with the auth token should support indexer acknowledgement
+
+            type: bool
+          type: boolean
+          x-go-name: AckEnabled
+        allow_query_string_auth:
+          description: |-
+            allow_query_string_auth is set to true if this token can be passed into the ingest endpoint's query parameter for auth
+
+            type: bool
+          type: boolean
+          x-go-name: AllowQueryStringAuth
+        created_at:
+          description: |-
+            created_at is a timestamp that captures when this token was created.
+
+            type: string
+            format: date-time
+          format: date-time
+          type: string
+          x-go-name: CreatedAt
+        created_by:
+          description: |-
+            created_by is the principal that created the token.
+
+            type: string
+          type: string
+          x-go-name: CreatedBy
+        description:
+          description: |-
+            description is an optional description of the token.
+
+            type: string
+          type: string
+          x-go-name: Description
+        disabled:
+          description: |-
+            disabled is set to true if this auth token has been disabled and cannot be used to send events to HECv1
+
+            type: bool
+          type: boolean
+          x-go-name: Disabled
+        index:
+          description: |-
+            index is the default value of the index field for records collected using this token.
+
+            type: string
+          type: string
+          x-go-name: Index
+        indexes:
+          description: |-
+            indexes is a list of index names that this token is allowed to send events to
+
+            type: []string
+          items:
+            type: string
+          type: array
+          x-go-name: Indexes
+        last_modified_at:
+          description: |-
+            last_modified_at is a timestamp that captures when this token was last modified.
+
+            type: string
+            format: date-time
+          format: date-time
+          type: string
+          x-go-name: LastModifiedAt
+        last_modified_by:
+          description: |-
+            last_modified_by is the principal that last modified the token.
+
+            type: string
+          type: string
+          x-go-name: LastModifiedBy
+        name:
+          description: |-
+            name is the name of the token (unique within the tenant that it belongs to).
+
+            type: string
+          pattern: '''[a-z][a-z0-9]{3,35}'''
+          type: string
+          x-go-name: Name
+        source:
+          description: |-
+            source is the default value of the source field for records collected using this token.
+
+            type: string
+          type: string
+          x-go-name: Source
+        sourcetype:
+          description: |-
+            sourcetype is the default value of the sourcetype field for records collected using this token.
+
+            type: string
+          type: string
+          x-go-name: Sourcetype
+        tenant:
+          description: |-
+            tenant is the tenant that this token belongs to.
+
+            type: string
+          pattern: '''[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*"'''
+          type: string
+          x-go-name: Tenant
+        token:
+          description: |-
+            token is the token value.
+
+            type: string
+          type: string
+          x-go-name: Token
+      title: 'HECTokenCreateResponse defines the response body returned from the HTTP Event Collector token create endpoint:'
+      type: object
+    HECTokenDeleteResponse:
+      description: DELETE /collector/tokens/{tokenName}
+      title: 'HECTokenDeleteResponse defines the response body returned from the HTTP Event Collector token delete endpoint:'
+      type: object
+    HECTokenUpdateRequest:
+      description: PUT  /collector/tokens/{tokenName}
+      properties:
+        ack_enabled:
+          description: |-
+            ack_enabled is set to true if events sent with the auth token should support indexer acknowledgement
+
+            type: *bool
+          type: boolean
+          x-go-name: AckEnabled
+        allow_query_string_auth:
+          description: |-
+            allow_query_string_auth is set to true if this token can be passed into the ingest endpoint's query parameter for auth
+
+            type: *bool
+          type: boolean
+          x-go-name: AllowQueryStringAuth
+        description:
+          description: |-
+            description is an optional description of the token.
+
+            type: *string
+          type: string
+          x-go-name: Description
+        disabled:
+          description: |-
+            disabled is set to true if this auth token has been disabled and cannot be used to send events to HECv1
+
+            type: *bool
+          type: boolean
+          x-go-name: Disabled
+        index:
+          description: |-
+            index is the default value of the index field for records collected using this token
+
+            type: *string
+          type: string
+          x-go-name: Index
+        indexes:
+          description: |-
+            indexes is a list of index names that this token is allowed to send events to
+
+            type: []string
+          items:
+            type: string
+          type: array
+          x-go-name: Indexes
+        source:
+          description: |-
+            source is the default value of the source field for records collected using this token
+
+            type: *string
+          type: string
+          x-go-name: Source
+        sourcetype:
+          description: |-
+            sourcetype is the default value of the sourcetype field for records collected using this token
+
+            type: *string
+          type: string
+          x-go-name: Sourcetype
+      title: 'HECTokenUpdateRequest defines the request body accepted by the HTTP Event Collector token update endpoint:'
+      type: object
+    HTTPResponse:
+      properties:
+        code:
+          type: string
+          x-go-name: Code
+        details:
+          type: object
+          x-go-name: Details
+        message:
+          type: string
+          x-go-name: Message
+      type: object
+    Metric:
+      properties:
+        dimensions:
+          additionalProperties:
+            type: string
+          description: Dimensions allow metrics to be classified e.g. {"Server":"nginx", "Region":"us-west-1", ...}
+          type: object
+          x-go-name: Dimensions
+        name:
+          description: Name of the metric e.g. CPU, Memory etc.
+          type: string
+          x-go-name: Name
+        type:
+          description: Type of metric. Default is g for gauge.
+          type: string
+          x-go-name: Type
+        unit:
+          description: Unit of the metric e.g. percent, megabytes, seconds etc.
+          type: string
+          x-go-name: Unit
+        value:
+          description: Value of the metric. If not specified, it will be defaulted to 0.
+          format: double
+          type: number
+          x-go-name: Value
+      required:
+      - name
+      title: Specifies individual metric data.
+      type: object
+    MetricAttribute:
+      properties:
+        defaultDimensions:
+          additionalProperties:
+            type: string
+          description: Optional. If set, individual metrics inherit these dimensions and can override any and/or all of them.
+          type: object
+          x-go-name: DefaultDimensions
+        defaultType:
+          description: Optional. If set, individual metrics inherit this type and can optionally override.
+          type: string
+          x-go-name: DefaultType
+        defaultUnit:
+          description: Optional. If set, individual metrics inherit this unit and can optionally override.
+          type: string
+          x-go-name: DefaultUnit
+      title: Default attributes for the metric.
+      type: object
+    MetricEvent:
+      properties:
+        attributes:
+          $ref: '#/components/schemas/MetricAttribute'
+        body:
+          description: Specifies multiple related metrics e.g. Memory, CPU etc.
+          items:
+            $ref: '#/components/schemas/Metric'
+          type: array
+          x-go-name: Body
+        host:
+          description: The host value assigned to the event data. Typically, this is the hostname of the client from which you are sending data.
+          type: string
+          x-go-name: Host
+        id:
+          description: |-
+            An optional ID that uniquely identifies the metric data. It is used to deduplicate the data if same data is set multiple times.
+            If ID is not specified, it will be assigned by the system.
+          type: string
+          x-go-name: ID
+        nanos:
+          description: Optional nanoseconds part of the timestamp.
+          format: int32
+          type: integer
+          x-go-name: Nanos
+        source:
+          description: |-
+            The source value to assign to the event data. For example, if you are sending data from an app that you are developing,
+            set this key to the name of the app.
+          type: string
+          x-go-name: Source
+        sourcetype:
+          description: The sourcetype value assigned to the event data.
+          type: string
+          x-go-name: Sourcetype
+        timestamp:
+          description: Epoch time in milliseconds.
+          format: int64
+          type: integer
+          x-go-name: Timestamp
+      required:
+      - body
+      type: object
+    UploadSuccessResponse:
+      properties:
+        code:
+          type: string
+          x-go-name: Code
+        details:
+          $ref: '#/components/schemas/FileUploadDetails'
+        message:
+          type: string
+          x-go-name: Message
+      type: object
+info:
+  description: Use the Ingest service in Splunk Cloud Services to send event and metrics data, or upload a static file, to Splunk Cloud Services.
+  title: Ingest API
+  version: v1beta2.16
+openapi: 3.0.0
+paths:
+  /{tenant}/ingest/v1beta2/collector/raw:
+    post:
+      operationId: postCollectorRaw
+      parameters:
+      - description: Sets a default source field value for all events in the request.
+        in: query
+        name: source
+        schema:
+          type: string
+        x-go-name: Source
+      - description: Sets a default sourcetype field value for all events in the request.
+        in: query
+        name: sourcetype
+        schema:
+          type: string
+        x-go-name: Sourcetype
+      - description: Sets a default index field value for all events in the request.
+        in: query
+        name: index
+        schema:
+          type: string
+        x-go-name: Index
+      - description: Sets a default host field value for all events in the request.
+        in: query
+        name: host
+        schema:
+          type: string
+        x-go-name: Host
+      - description: Sets a default time field value for all events in the request.
+        in: query
+        name: time
+        schema:
+          type: string
+        x-go-name: Time
+      - description: The DSP HEC token provided by the user.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          pattern: ^(Splunk|Basic) .+
+          type: string
+      - in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        x-go-name: Tenant
+      requestBody:
+        $ref: '#/components/requestBodies/postCollectorPayload'
+      responses:
+        "200":
+          $ref: '#/components/responses/hecSuccessResponse'
+        "400":
+          $ref: '#/components/responses/hecBadRequestError'
+        "401":
+          $ref: '#/components/responses/hecUnauthorizedError'
+        "403":
+          $ref: '#/components/responses/hecForbiddenError'
+        "413":
+          $ref: '#/components/responses/hecBadRequestError'
+        "500":
+          $ref: '#/components/responses/hecInternalError'
+        "503":
+          $ref: '#/components/responses/serverBusyError'
+        default:
+          $ref: '#/components/responses/hecInternalError'
+      summary: Sends collector raw events.
+      tags:
+      - Collector
+      x-auth-required: false
+      x-authz-scope: ingest.collector.write
+  /{tenant}/ingest/v1beta2/collector/raw/1.0:
+    post:
+      operationId: postCollectorRawV1
+      parameters:
+      - description: Sets a default source field value for all events in the request.
+        in: query
+        name: source
+        schema:
+          type: string
+        x-go-name: Source
+      - description: Sets a default sourcetype field value for all events in the request.
+        in: query
+        name: sourcetype
+        schema:
+          type: string
+        x-go-name: Sourcetype
+      - description: Sets a default index field value for all events in the request.
+        in: query
+        name: index
+        schema:
+          type: string
+        x-go-name: Index
+      - description: Sets a default host field value for all events in the request.
+        in: query
+        name: host
+        schema:
+          type: string
+        x-go-name: Host
+      - description: Sets a default time field value for all events in the request.
+        in: query
+        name: time
+        schema:
+          type: string
+        x-go-name: Time
+      - description: The DSP HEC token provided by the user.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          pattern: ^(Splunk|Basic) .+
+          type: string
+      - in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        x-go-name: Tenant
+      requestBody:
+        $ref: '#/components/requestBodies/postCollectorPayload'
+      responses:
+        "200":
+          $ref: '#/components/responses/hecSuccessResponse'
+        "400":
+          $ref: '#/components/responses/hecBadRequestError'
+        "401":
+          $ref: '#/components/responses/hecUnauthorizedError'
+        "403":
+          $ref: '#/components/responses/hecForbiddenError'
+        "413":
+          $ref: '#/components/responses/hecBadRequestError'
+        "500":
+          $ref: '#/components/responses/hecInternalError'
+        "503":
+          $ref: '#/components/responses/serverBusyError'
+        default:
+          $ref: '#/components/responses/hecInternalError'
+      summary: Sends collector raw events.
+      tags:
+      - Collector
+      x-auth-required: false
+      x-authz-scope: ingest.collector.write
+  /{tenant}/ingest/v1beta2/collector/tokens:
+    delete:
+      operationId: deleteAllCollectorTokens
+      parameters:
+      - in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        x-go-name: Tenant
+      responses:
+        "204":
+          $ref: '#/components/responses/hecTokenDeleteSuccessResponse'
+        "401":
+          $ref: '#/components/responses/unauthorizedError'
+        "403":
+          $ref: '#/components/responses/forbiddenError'
+        "500":
+          $ref: '#/components/responses/internalError'
+        default:
+          $ref: '#/components/responses/internalError'
+      summary: Delete All dsphec tokens for a given tenant.
+      tags:
+      - CollectorTokens
+      x-auth-required: true
+      x-authz-scope: ingest.collector.tokens.delete
+    get:
+      operationId: listCollectorTokens
+      parameters:
+      - description: The access token provided by the user (obtained from a known identity provider).
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          pattern: ^Bearer .+
+          type: string
+      - in: path
+        name: tenant
+        required: true
+        schema:
+          pattern: '''[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*"'''
+          type: string
+        x-go-name: Tenant
+      - in: query
+        name: limit
+        schema:
+          format: int64
+          type: integer
+        x-go-name: Limit
+      - in: query
+        name: offset
+        schema:
+          format: int64
+          type: integer
+        x-go-name: Offset
+      responses:
+        "200":
+          $ref: '#/components/responses/hecTokenListSuccessResponse'
+        "400":
+          $ref: '#/components/responses/badRequestError'
+        "401":
+          $ref: '#/components/responses/unauthorizedError'
+        "403":
+          $ref: '#/components/responses/forbiddenError'
+        "500":
+          $ref: '#/components/responses/internalError'
+        "503":
+          $ref: '#/components/responses/serverBusyError'
+        default:
+          $ref: '#/components/responses/internalError'
+      summary: List dsphec tokens for a tenant.
+      tags:
+      - CollectorTokens
+      x-auth-required: true
+      x-authz-scope: ingest.collector.tokens.read
+    post:
+      operationId: postCollectorTokens
+      parameters:
+      - in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        x-go-name: Tenant
+      - description: The access token provided by the user (obtained from a known identity provider).
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          pattern: ^Bearer .+
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HECTokenCreateRequest'
+        description: The API request schema for the token.
+        required: true
+      responses:
+        "201":
+          $ref: '#/components/responses/hecTokenCreateSuccessResponse'
+        "400":
+          $ref: '#/components/responses/badRequestError'
+        "401":
+          $ref: '#/components/responses/unauthorizedError'
+        "403":
+          $ref: '#/components/responses/forbiddenError'
+        "409":
+          $ref: '#/components/responses/resourceConflictError'
+        "500":
+          $ref: '#/components/responses/internalError'
+        "503":
+          $ref: '#/components/responses/serverBusyError'
+        default:
+          $ref: '#/components/responses/internalError'
+      summary: Creates dsphec tokens.
+      tags:
+      - CollectorTokens
+      x-auth-required: true
+      x-authz-scope: ingest.collector.tokens.write
+  /{tenant}/ingest/v1beta2/collector/tokens/{tokenName}:
+    delete:
+      operationId: deleteCollectorToken
+      parameters:
+      - in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        x-go-name: Tenant
+      - description: The access token provided by the user (obtained from a known identity provider).
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          pattern: ^Bearer .+
+          type: string
+      - in: path
+        name: tokenName
+        required: true
+        schema:
+          pattern: ^[a-z][a-z0-9]{3,35}$
+          type: string
+        x-go-name: Name
+      responses:
+        "204":
+          $ref: '#/components/responses/hecTokenDeleteSuccessResponse'
+        "400":
+          $ref: '#/components/responses/badRequestError'
+        "401":
+          $ref: '#/components/responses/unauthorizedError'
+        "403":
+          $ref: '#/components/responses/forbiddenError'
+        "500":
+          $ref: '#/components/responses/internalError'
+        "503":
+          $ref: '#/components/responses/serverBusyError'
+        default:
+          $ref: '#/components/responses/internalError'
+      summary: Delete dsphec token by name.
+      tags:
+      - CollectorTokens
+      x-auth-required: true
+      x-authz-scope: ingest.collector.tokens.delete
+    get:
+      operationId: getCollectorToken
+      parameters:
+      - in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        x-go-name: Tenant
+      - in: path
+        name: tokenName
+        required: true
+        schema:
+          type: string
+        x-go-name: Name
+      responses:
+        "200":
+          $ref: '#/components/responses/hecTokenGetSuccessResponse'
+        "401":
+          $ref: '#/components/responses/unauthorizedError'
+        "403":
+          $ref: '#/components/responses/forbiddenError'
+        "404":
+          $ref: '#/components/responses/notFoundError'
+        "500":
+          $ref: '#/components/responses/internalError'
+        "503":
+          $ref: '#/components/responses/serverBusyError'
+        default:
+          $ref: '#/components/responses/internalError'
+      summary: Get the metadata of a dsphec token by name.
+      tags:
+      - CollectorTokens
+      x-auth-required: true
+      x-authz-scope: ingest.collector.tokens.read
+    put:
+      operationId: putCollectorToken
+      parameters:
+      - in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        x-go-name: Tenant
+      - description: The access token provided by the user (obtained from a known identity provider).
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          pattern: ^Bearer .+
+          type: string
+      - in: path
+        name: tokenName
+        required: true
+        schema:
+          pattern: ^[a-z][a-z0-9]{3,35}$
+          type: string
+        x-go-name: Name
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HECTokenUpdateRequest'
+        description: The API request schema for the token.
+        required: true
+      responses:
+        "200":
+          $ref: '#/components/responses/hecTokenGetSuccessResponse'
+        "401":
+          $ref: '#/components/responses/unauthorizedError'
+        "403":
+          $ref: '#/components/responses/forbiddenError'
+        "404":
+          $ref: '#/components/responses/notFoundError'
+        "500":
+          $ref: '#/components/responses/internalError'
+        "503":
+          $ref: '#/components/responses/serverBusyError'
+        default:
+          $ref: '#/components/responses/internalError'
+      summary: Update the metadata of a dsphec token by name.
+      tags:
+      - CollectorTokens
+      x-auth-required: true
+      x-authz-scope: ingest.collector.tokens.write
+  /{tenant}/ingest/v1beta2/events:
+    post:
+      operationId: postEvents
+      parameters:
+      - in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        x-go-name: Tenant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Event'
+              type: array
+      responses:
+        "200":
+          $ref: '#/components/responses/successResponse'
+        "400":
+          $ref: '#/components/responses/badRequestError'
+        "401":
+          $ref: '#/components/responses/unauthorizedError'
+        "403":
+          $ref: '#/components/responses/forbiddenError'
+        "404":
+          $ref: '#/components/responses/notFoundError'
+        "413":
+          $ref: '#/components/responses/badRequestError'
+        "422":
+          $ref: '#/components/responses/unprocessableEntityError'
+        "429":
+          $ref: '#/components/responses/tooManyRequestsError'
+        "500":
+          $ref: '#/components/responses/internalError'
+        default:
+          $ref: '#/components/responses/errorResponse'
+      summary: Sends events.
+      tags:
+      - Events
+      x-auth-required: false
+      x-authz-scope: ingest.events.write
+  /{tenant}/ingest/v1beta2/files:
+    post:
+      operationId: uploadFiles
+      parameters:
+      - in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        x-go-name: Tenant
+      - description: The access token provided by the user (obtained from a known identity provider).
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          pattern: ^Bearer .+
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                upfile:
+                  format: binary
+                  type: string
+                  x-go-name: Upfile
+              type: object
+      responses:
+        "201":
+          $ref: '#/components/responses/fileUploadSuccessResponse'
+        "400":
+          $ref: '#/components/responses/badRequestError'
+        "401":
+          $ref: '#/components/responses/unauthorizedError'
+        "403":
+          $ref: '#/components/responses/forbiddenError'
+        "404":
+          $ref: '#/components/responses/notFoundError'
+        "429":
+          $ref: '#/components/responses/tooManyRequestsError'
+        "500":
+          $ref: '#/components/responses/internalError'
+        default:
+          $ref: '#/components/responses/errorResponse'
+      summary: Upload a CSV or text file that contains events.
+      tags:
+      - Files
+      x-authz-scope: ingest.files.write
+      x-hidden: "true"
+  /{tenant}/ingest/v1beta2/metrics:
+    post:
+      operationId: postMetrics
+      parameters:
+      - in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        x-go-name: Tenant
+      - description: The access token provided by the user (obtained from a known identity provider).
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          pattern: ^Bearer .+
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/MetricEvent'
+              type: array
+      responses:
+        "200":
+          $ref: '#/components/responses/successResponse'
+        "400":
+          $ref: '#/components/responses/badRequestError'
+        "401":
+          $ref: '#/components/responses/unauthorizedError'
+        "403":
+          $ref: '#/components/responses/forbiddenError'
+        "404":
+          $ref: '#/components/responses/notFoundError'
+        "413":
+          $ref: '#/components/responses/badRequestError'
+        "429":
+          $ref: '#/components/responses/tooManyRequestsError'
+        "500":
+          $ref: '#/components/responses/internalError'
+        default:
+          $ref: '#/components/responses/errorResponse'
+      summary: Sends metric events.
+      tags:
+      - Metrics
+      x-auth-required: false
+      x-authz-scope: ingest.metrics.write
+servers:
+- url: /
+
+# Retrieved from scp-openapi commit 75824d71791e0b0bdf66dbcce7dd9dc1e7061407 path: ingest/v1beta2/openapi.yaml

@@ -1,0 +1,129 @@
+0 silly input [ 'build' ]
+1 silly flags {
+1 silly flags   _: [ 'run' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false,
+1 silly flags   script: 'build',
+1 silly flags   args: []
+1 silly flags }
+2 verbose rootPath /Users/nhaq/app-repos/dashboardTutorial3
+3 info version 2.11.0
+4 silly existsSync /Users/nhaq/app-repos/dashboardTutorial3/VERSION
+5 silly initialize attempt
+6 silly initialize success
+7 silly execute attempt
+8 silly runScriptInDir build [] google-map
+9 silly getExecOpts { cwd: '/Users/nhaq/app-repos/dashboardTutorial3/packages/google-map' }
+10 silly runScriptInDir build [] map-dashboard
+11 silly getExecOpts {
+11 silly getExecOpts   cwd: '/Users/nhaq/app-repos/dashboardTutorial3/packages/map-dashboard'
+11 silly getExecOpts }
+12 error build Errored while running script in '@splunk/map-dashboard'
+13 error execute callback with error
+14 error Error: Command failed: yarn run build
+14 error ModuleNotFoundError: Module not found: Error: Can't resolve 'react-google-maps' in '/Users/nhaq/app-repos/dashboardTutorial3/packages/google-map'
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/webpack/lib/Compilation.js:925:10
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/webpack/lib/NormalModuleFactory.js:401:22
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/webpack/lib/NormalModuleFactory.js:130:21
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/webpack/lib/NormalModuleFactory.js:224:22
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/neo-async/async.js:2830:7
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/neo-async/async.js:6877:13
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/webpack/lib/NormalModuleFactory.js:214:25
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/Resolver.js:213:14
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/Resolver.js:285:5
+14 error     at eval (eval at create (/Users/nhaq/app-repos/dashboardTutorial3/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:13:1)
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/UnsafeCachePlugin.js:44:7
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/Resolver.js:285:5
+14 error     at eval (eval at create (/Users/nhaq/app-repos/dashboardTutorial3/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:13:1)
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/Resolver.js:285:5
+14 error     at eval (eval at create (/Users/nhaq/app-repos/dashboardTutorial3/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:25:1)
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/DescriptionFilePlugin.js:67:43
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/Resolver.js:285:5
+14 error     at eval (eval at create (/Users/nhaq/app-repos/dashboardTutorial3/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:41:1)
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/ModuleKindPlugin.js:30:40
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/Resolver.js:285:5
+14 error     at eval (eval at create (/Users/nhaq/app-repos/dashboardTutorial3/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:13:1)
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/Resolver.js:285:5
+14 error     at eval (eval at create (/Users/nhaq/app-repos/dashboardTutorial3/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:13:1)
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/forEachBail.js:30:14
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/Resolver.js:285:5
+14 error     at eval (eval at create (/Users/nhaq/app-repos/dashboardTutorial3/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:13:1)
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/UnsafeCachePlugin.js:44:7
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/Resolver.js:285:5
+14 error     at eval (eval at create (/Users/nhaq/app-repos/dashboardTutorial3/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:13:1)
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/Resolver.js:285:5
+14 error     at eval (eval at create (/Users/nhaq/app-repos/dashboardTutorial3/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:25:1)
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/DescriptionFilePlugin.js:67:43
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/Resolver.js:285:5
+14 error     at eval (eval at create (/Users/nhaq/app-repos/dashboardTutorial3/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:14:1)
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/enhanced-resolve/lib/RootPlugin.js:37:38
+14 error     at _next42 (eval at create (/Users/nhaq/app-repos/dashboardTutorial3/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:6:1)
+14 error resolve 'react-google-maps' in '/Users/nhaq/app-repos/dashboardTutorial3/packages/google-map'
+14 error   Parsed request is a module
+14 error   using description file: /Users/nhaq/app-repos/dashboardTutorial3/packages/google-map/package.json (relative path: .)
+14 error     Field 'browser' doesn't contain a valid alias configuration
+14 error     resolve as module
+14 error       /Users/nhaq/app-repos/dashboardTutorial3/packages/node_modules doesn't exist or is not a directory
+14 error       /Users/nhaq/app-repos/node_modules doesn't exist or is not a directory
+14 error       /Users/nhaq/node_modules doesn't exist or is not a directory
+14 error       /Users/node_modules doesn't exist or is not a directory
+14 error       /node_modules doesn't exist or is not a directory
+14 error       looking for modules in /Users/nhaq/app-repos/dashboardTutorial3/packages/google-map/node_modules
+14 error         using description file: /Users/nhaq/app-repos/dashboardTutorial3/packages/google-map/package.json (relative path: ./node_modules)
+14 error           Field 'browser' doesn't contain a valid alias configuration
+14 error       looking for modules in /Users/nhaq/app-repos/dashboardTutorial3/node_modules
+14 error         using description file: /Users/nhaq/app-repos/dashboardTutorial3/package.json (relative path: ./node_modules)
+14 error           Field 'browser' doesn't contain a valid alias configuration
+14 error           using description file: /Users/nhaq/app-repos/dashboardTutorial3/packages/google-map/package.json (relative path: ./node_modules/react-google-maps)
+14 error             no extension
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error           using description file: /Users/nhaq/app-repos/dashboardTutorial3/package.json (relative path: ./node_modules/react-google-maps)
+14 error             no extension
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/packages/google-map/node_modules/react-google-maps doesn't exist
+14 error             .wasm
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/node_modules/react-google-maps doesn't exist
+14 error             .wasm
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/packages/google-map/node_modules/react-google-maps.wasm doesn't exist
+14 error             .mjs
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/node_modules/react-google-maps.wasm doesn't exist
+14 error             .mjs
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/packages/google-map/node_modules/react-google-maps.mjs doesn't exist
+14 error             .js
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/node_modules/react-google-maps.mjs doesn't exist
+14 error             .js
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/packages/google-map/node_modules/react-google-maps.js doesn't exist
+14 error             .jsx
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/node_modules/react-google-maps.js doesn't exist
+14 error             .jsx
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/packages/google-map/node_modules/react-google-maps.jsx doesn't exist
+14 error             .ts
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/node_modules/react-google-maps.jsx doesn't exist
+14 error             .ts
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/packages/google-map/node_modules/react-google-maps.ts doesn't exist
+14 error             .tsx
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/node_modules/react-google-maps.ts doesn't exist
+14 error             .tsx
+14 error               Field 'browser' doesn't contain a valid alias configuration
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/packages/google-map/node_modules/react-google-maps.tsx doesn't exist
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/node_modules/react-google-maps.tsx doesn't exist
+14 error             as directory
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/packages/google-map/node_modules/react-google-maps doesn't exist
+14 error             as directory
+14 error               /Users/nhaq/app-repos/dashboardTutorial3/node_modules/react-google-maps doesn't exist
+14 error error Command failed with exit code 1.
+14 error $ NODE_ENV=production webpack --bail
+14 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+14 error
+14 error     at /Users/nhaq/app-repos/dashboardTutorial3/node_modules/lerna/node_modules/execa/index.js:236:11
