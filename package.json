@@ -12,13 +12,13 @@
     "test": "lerna run test --stream --no-sort"
   },
   "dependencies": {
+    "@splunk/dashboard-action-buttons": "^23.1.0",
     "@splunk/dashboard-context": "^23.1.0",
-    "@splunk/dashboard-action-buttons":"^23.1.0",
     "@splunk/dashboard-core": "^23.1.0",
-    "@splunk/dashboard-presets": "^23.1.0",
-    "@splunk/dashboard-visualizations": "^23.1.0",
-    "@splunk/dashboard-ui": "^23.1.0",
     "@splunk/dashboard-layouts": "^23.1.0",
+    "@splunk/dashboard-presets": "^23.1.0",
+    "@splunk/dashboard-ui": "^23.1.0",
+    "@splunk/dashboard-visualizations": "^23.1.0",
     "@splunk/datasource-utils": "^23.1.0",
     "@splunk/datasources": "^23.1.0",
     "@splunk/react-page": "^5.1.0",
@@ -35,5 +35,6 @@
   ],
   "engines": {
     "node": ">=8"
-  }
+  },
+  "version": "0.0.0"
 }
