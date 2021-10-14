@@ -1,7 +1,7 @@
 {
 	"visualizations": {
         "viz_CustomMap":{
-            "type":"viz.CustomMap",
+            "type":"splunk.CustomMap",
             "options":{},
             "dataSources":{}
         },
@@ -96,24 +96,24 @@
 	},
 	"defaults": {},
 	"inputs": {},
-	"layout": {
-		"type": "absolute",
-		"options": {
-			"display": "auto-scale",
-			"width": 1440,
-			"height": 1024
+"layout": {
+	"type": "absolute",
+	"options": {
+		"display": "auto-scale",
+		"width": 1440,
+		"height": 1024
+	},
+	"structure": [
+		{
+			"item": "viz_CustomMap",
+			"type":"block",
+			"position":{
+				"x":0,
+				"y":0,
+				"w":1440,
+				"h":1024
+			}
 		},
-		"structure": [
-            {
-                "item": "viz_CustomMap",
-                "type":"block",
-                "position":{
-                    "x":0,
-                    "y":0,
-                    "w":1440,
-                    "h":1024
-                }
-            },
 			{
 				"item": "viz_WseZo4vD",
 				"type": "block",
