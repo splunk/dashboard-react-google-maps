@@ -24,7 +24,7 @@ const customPreset = {
   ...EnterpriseViewOnlyPreset,
   visualizations: {
     ...EnterpriseViewOnlyPreset.visualizations,
-    "viz.CustomMap": CustomMap,
+    "splunk.CustomMap": CustomMap,
   },
 };
 
