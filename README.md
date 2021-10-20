@@ -53,6 +53,9 @@ asking, `format:verify` won't.
 
 Running `yarn run setup` once is required to enable all other tasks. The command might take a few minutes to finish.
 
+To link the app to your own local Splunk instance, you can do so by setting up the SPLUNK_HOME variable to your Splunk application directory. And then in the Splunk App directory of this repo, run `yarn run link:app`
+
+
 
 ## Developer Scripts
 
