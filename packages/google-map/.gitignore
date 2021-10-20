@@ -1,5 +1,5 @@
 demo/splunk-app/appserver/static/pages
-
+node_modules
 /*.js
 !/.babelrc.js
 !/.eslintrc.js
