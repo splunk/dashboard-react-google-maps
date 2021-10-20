@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<view template="map-dashboard:/templates/start.html" type="html">
+	<label>Map Dashboard</label>
+</view>
