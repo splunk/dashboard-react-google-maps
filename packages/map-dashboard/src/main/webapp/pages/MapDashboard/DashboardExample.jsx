@@ -7,8 +7,9 @@ import {
 } from "@splunk/dashboard-context";
 import SplunkThemeProvider from "@splunk/themes/SplunkThemeProvider";
 import EnterpriseViewOnlyPreset from "@splunk/dashboard-presets/EnterpriseViewOnlyPreset";
+import CustomMap from "@splunk/google-map";
 import definition from "./definition.json";
-import CustomMap from "./customMap";
+
 
 const themeToVariant = {
   enterprise: { colorScheme: "light", family: "enterprise" },
