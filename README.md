@@ -2,6 +2,8 @@
 
 In the third installment of the Splunk Dashboard tutorials, we cover how to use public 3rd party react packages in Splunk Dashboards. This projects uses react-google maps, a package that works with the Google Map Javascript API to render a map as part of a React component. 
 
+Be sure to check out tutorial.md for a step by step guide on how to build this project!
+
 react-google-maps NPM: https://www.npmjs.com/package/react-google-maps
 
 This project is also based on another Splunker's project, showcasing how you can go a step further to add some interactive elements and get more data from click events on a Google Map. You can check out that project here: https://github.com/splunk/supply-chain-tracking
