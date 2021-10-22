@@ -2,7 +2,20 @@
 	"visualizations": {
         "viz_CustomMap":{
             "type":"splunk.CustomMap",
-            "options":{},
+            "options":{
+				"defaultOptions":{
+					"disableDefaultUI": true, 
+					"draggable": true, 
+					"keyboardShortcuts": false, 
+					"scaleControl": true, 
+					"scrollwheel": true
+				},
+				"defaultZoom":3,
+				"defaultCenter":{
+					"lat": 40.7484445, 
+					"lng": -73.9878584
+				}
+			},
             "dataSources":{}
         },
 		"viz_WseZo4vD": {
