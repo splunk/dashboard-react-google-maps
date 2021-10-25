@@ -1,21 +1,13 @@
-import styled from 'styled-components';
-import { variables, mixins } from '@splunk/themes';
+const LoadingElement = {
+  height: `100%`,
+};
 
-const StyledContainer = styled.div`
-    ${mixins.reset('inline-block')};
-    font-size: ${variables.fontSizeLarge};
-    line-height: 200%;
-    margin: ${variables.spacing} ${variables.spacingHalf};
-    padding: ${variables.spacing} calc(${variables.spacing} * 2);
-    border-radius: ${variables.borderRadius};
-    box-shadow: ${variables.overlayShadow};
-    background-color: ${variables.backgroundColor};
-`;
+const ContainerElement = {
+  height: `calc(100vh - 10px)`,
+};
 
-const StyledGreeting = styled.div`
-    font-weight: bold;
-    color: ${variables.brandColor};
-    font-size: ${variables.fontSizeXXLarge};
-`;
+const MapElement = {
+  height: `100%`,
+};
 
-export { StyledContainer, StyledGreeting };
+export { LoadingElement, ContainerElement, MapElement };
