@@ -1,0 +1,22 @@
+version: 2
+updates:
+- package-ecosystem: "npm"
+  directory: "/"
+  schedule:
+    interval: "weekly"
+  allow:
+    - dependency-type: "direct"
+
+- package-ecosystem: "npm"
+  directory: "/packages/google-map"
+  schedule:
+    interval: "weekly"
+  allow:
+    - dependency-type: "direct"
+
+- package-ecosystem: "npm"
+  directory: "/packages/map-dashboard"
+  schedule:
+    interval: "weekly"
+  allow:
+    - dependency-type: "direct"
