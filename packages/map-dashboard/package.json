@@ -14,7 +14,7 @@
     "stylelint": "stylelint \"src/**/*.{js,jsx}\" --config stylelint.config.js"
   },
   "dependencies": {
-    "@splunk/visualizations": "^23.4.0"
+    "@splunk/visualizations": "^24.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
