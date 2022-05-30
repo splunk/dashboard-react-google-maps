@@ -16,7 +16,7 @@
     "@splunk/dashboard-core": "^23.3.0",
     "@splunk/dashboard-layouts": "^23.3.0",
     "@splunk/dashboard-presets": "^23.3.0",
-    "@splunk/datasource-utils": "^23.3.0",
+    "@splunk/datasource-utils": "^24.5.0",
     "@splunk/datasources": "^23.3.0",
     "@splunk/react-page": "^5.1.0",
     "@splunk/react-ui": "^4.3.0",
