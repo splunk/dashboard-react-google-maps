@@ -295,8 +295,8 @@ Next, we need to configure the app navigation to allow us to view our dashboard.
 Now that we have the code in place, let's do a test run before we dive into the "custom" portion of this tutorial. Open a new terminal window in VSCode (or use a regular terminal window). We will run a set of commands that will install new dependencies for dashboard related packages, install dependencies that are generated from the splunk-create package and build our project.
 
 ```bash
-$ cd dashboardTutorial3 #(if not in project root already)
-$ npm install @splunk/dashboard-core @splunk/dashboard-presets @splunk/dashboard-context
+$ cd dashboardTutorial3/packages/map-dashboard #(if not in app root already)
+$ yarn add @splunk/dashboard-core @splunk/dashboard-presets @splunk/dashboard-context @splunk/visualization-context
 $ yarn install # to install other dependencies
 $ yarn run build
 ```
