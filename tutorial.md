@@ -38,7 +38,7 @@ $ npx @splunk/create
 
 You should see a selection menu with two options. Select the option that states `A monorepo with a React Splunk app with a React component`. Name the component `googleMap`, the repository `dashboardTutorial3` and the app `mapDashboard`.
 
-<img src="tutorial3/terminal.png" alt="Terminal Output From Running Command" style={{width: "100%", maxWidth: "1080px"}} />
+
 
 For more details on the Splunk UI create package, see **Additional Reading**.
 
@@ -331,7 +331,6 @@ If your Splunk instance is already running, you will have to restart it to pick 
 -   Error 404, page not found
     -   Check to see that you correctly created your view in the `src/main/resources/splunk/default/data/ui` directory. Remember you need to both create the view itself and then add the view in the `default.xml` file.
 
-<img src="tutorial3/initial_dashboard.png" alt="Initial Dashboard Screenshot" width="100%"/>
 
 ## Adding our Google Map Functionality
 
