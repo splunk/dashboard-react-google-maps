@@ -1,5 +1,5 @@
 .DS_Store
-stage/
+map-dashboard/stage/
 .idea/
 lerna-debug.log
 node_modules

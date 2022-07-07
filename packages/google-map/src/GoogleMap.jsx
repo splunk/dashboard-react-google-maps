@@ -4,6 +4,8 @@ import SplunkVisualization from '@splunk/visualizations/common/SplunkVisualizati
 import mapStyleDark from './map-style.json';
 import { LoadingElement, ContainerElement, MapElement } from './GoogleMapStyles';
 
+const API_KEY = '';
+
 const mapStyleOptions = (defaultOptions) => ({
     styles: mapStyleDark,
     ...defaultOptions,
@@ -22,7 +24,7 @@ const MyMapComponent = withScriptjs(
 const CustomMap = ({ options }) => {
     return (
         <MyMapComponent
-            googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDVYVHYYcRwAgiEBe9vgQnt83Ic1mQ1cAw"
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${API_KEY}`}
             loadingElement={<div style={LoadingElement} />}
             containerElement={<div style={ContainerElement} />}
             mapElement={<div style={MapElement} />}
