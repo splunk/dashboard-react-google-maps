@@ -1,4 +1,0 @@
-<nav>
-    <view name="start" default="true"/>
-    <view name="MapDashboard"/>
-</nav>
