@@ -33,7 +33,7 @@
     "@splunk/webpack-configs": "^5.0.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.4",
-    "chai": "^3.5.0",
+    "chai": "^4.3.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^7.14.0",
