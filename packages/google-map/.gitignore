@@ -5,3 +5,4 @@ node_modules
 !/.eslintrc.js
 !/jest.config.js
 !/*.config.js
+stage/
