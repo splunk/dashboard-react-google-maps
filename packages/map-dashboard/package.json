@@ -32,7 +32,7 @@
     "@splunk/webpack-configs": "^5.0.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.4",
-    "copy-webpack-plugin": "^4.5.2",
+    "copy-webpack-plugin": "^5.1.2",
     "eslint": "^7.14.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^6.15.0",
