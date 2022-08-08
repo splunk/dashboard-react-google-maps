@@ -1785,15 +1785,15 @@
     lodash "^4.17.14"
     prop-types "^15.6.2"
 
-"@splunk/react-page@^5.1.0":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@splunk/react-page/-/react-page-5.2.1.tgz#c30e716b30581a96a61381572bc0e43886b1efee"
-  integrity sha512-gbqziOy9MllLoLR/irFTRcCMfWMKindU6EJwRVhUqzaLOeJUOcJ0KHvCz+DKMUycW3APnzLSoOwQ7F3/FIU4wA==
+"@splunk/react-page@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@splunk/react-page/-/react-page-6.0.1.tgz#c97650dcbab0f1172393cda860ea0a7070d30681"
+  integrity sha512-GiLdNYAAifL6cd0OkZTuEGkIxcYcO+xBiloffwOCRwf4b56dmxKcEDCxJ/PnIXSMtiE20FjwYD81ZrtoRHrxfA==
   dependencies:
-    "@splunk/react-ui" "^4.6.0"
-    "@splunk/splunk-utils" "^2.1.0"
-    "@splunk/themes" "^0.10.1"
-    "@splunk/ui-utils" "^1.4.0"
+    "@splunk/react-ui" "^4.11.0"
+    "@splunk/splunk-utils" "^2.2.1"
+    "@splunk/themes" "^0.12.0"
+    "@splunk/ui-utils" "^1.5.0"
     prop-types "^15.6.2"
     scriptjs "^2.5.8"
 
@@ -1837,13 +1837,13 @@
     lodash "^4.17.19"
     prop-types "^15.6.0"
 
-"@splunk/react-ui@^4.0.0", "@splunk/react-ui@^4.0.3", "@splunk/react-ui@^4.2.0", "@splunk/react-ui@^4.3.0", "@splunk/react-ui@^4.5.3", "@splunk/react-ui@^4.6.0":
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/@splunk/react-ui/-/react-ui-4.10.0.tgz#34f40a0cf21d325bb5fbbf760509d1c024d3dd6e"
-  integrity sha512-irfwnmM9xms2/1JiofmqR3Wa+Y7pwqckns/KF5PxA0FqlHV2NHIStsdqe8KP7mFiiYeGCI8mvGcLp++Fd8xLTg==
+"@splunk/react-ui@^4.0.0", "@splunk/react-ui@^4.0.3", "@splunk/react-ui@^4.11.0", "@splunk/react-ui@^4.2.0", "@splunk/react-ui@^4.3.0", "@splunk/react-ui@^4.5.3", "@splunk/react-ui@^4.6.0":
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/@splunk/react-ui/-/react-ui-4.11.0.tgz#4189b54c42fe014aa6e3dd671e7eb4e08f331627"
+  integrity sha512-OEeEIRCRkSb2OAnUIsYuUoyYMfvk4YhwNwlSWgzMQJgl/covb6x9Nk0UUbeisdLkZOqfqljZu8nGTOZRVWCFgA==
   dependencies:
     "@splunk/react-icons" "^3.2.0"
-    "@splunk/themes" "^0.11.0"
+    "@splunk/themes" "^0.12.0"
     "@splunk/ui-utils" "^1.5.0"
     "@types/commonmark" "^0.27.0"
     "@types/lodash" "^4.14.156"
@@ -1895,10 +1895,10 @@
     lodash "^4.17.14"
     rxjs "^5.4.2"
 
-"@splunk/splunk-utils@^2.0.0", "@splunk/splunk-utils@^2.1.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@splunk/splunk-utils/-/splunk-utils-2.2.0.tgz#1bfebff7a18d7e3aad7ace0aa075b977cca3afe9"
-  integrity sha512-xUTY2zorbPR6JLmNk7PinyuHIyyoZXv8a7AxBMK52JYAkDd7+C/RRS+rzjy7SN8UbB2QA5FUAk9B1uWb4+sveQ==
+"@splunk/splunk-utils@^2.0.0", "@splunk/splunk-utils@^2.1.0", "@splunk/splunk-utils@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@splunk/splunk-utils/-/splunk-utils-2.2.1.tgz#be57e03241920d6e277d842da7598acc2664b002"
+  integrity sha512-h1skJhqWQuNajYQGo8jMNnKFZnYaYGP8BBRgL70qz/BuYBb05KtYzi+XUWnFx17bS8Qa8zzcdLtNo+LxBOIIdA==
   dependencies:
     "@splunk/ui-utils" "^1.5.0"
     lodash "^4.17.14"
@@ -1912,7 +1912,7 @@
     stylelint-config-styled-components "^0.1.1"
     stylelint-processor-styled-components "^1.9.0"
 
-"@splunk/themes@^0.10.0", "@splunk/themes@^0.10.1":
+"@splunk/themes@^0.10.0":
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/@splunk/themes/-/themes-0.10.1.tgz#3e465c6f3143e10e610a1a971b993a61dc9ac61e"
   integrity sha512-MjpIddvPixTlt53REgwPQ10bcQ5iFn5aG+4HSIqtxMJuXAoLZTN9WooDLadw8nra0wZ4WruitKnUj1sAkTdDcw==
@@ -1929,6 +1929,19 @@
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/@splunk/themes/-/themes-0.11.0.tgz#670714d22c121eeecd14df0148849c7805d67d28"
   integrity sha512-fseljBOC9gwZhk7oWsrImg1xsdH+kLJ2rACDspPRJ+PoalOIsXEbgxSNFqIl52HbSofMXb4DL2NWJosgaHHqSw==
+  dependencies:
+    "@types/lodash" "^4.14.156"
+    "@types/react" "^16.9.38"
+    "@types/styled-components" "^5.1.0"
+    "@types/tinycolor2" "^1.4.2"
+    color-blend "^2.0.9"
+    lodash "^4.17.14"
+    tinycolor2 "^1.4.1"
+
+"@splunk/themes@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@splunk/themes/-/themes-0.12.0.tgz#caa1fc46e3c2fc4e79c02f20060ffd0484b22b80"
+  integrity sha512-LdXKLRHoXIHorHMjSZLoH6txyCQHDFD+zWUx+FroEj4gQOF5eg9EHfbC0Z7nyglcyy8PcngS3GhDlgeaeisHlw==
   dependencies:
     "@types/lodash" "^4.14.156"
     "@types/react" "^16.9.38"
