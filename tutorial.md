@@ -242,10 +242,13 @@ const themeToVariant = {
 const geoRegistry = GeoRegistry.create();
 geoRegistry.addDefaultProvider(new GeoJsonProvider());
 
+// NOTICE: If you are on Dashboard Core versions LOWER than 25.X.X, preset will be a prop for <DashboardCore> instead of 
+// <DashboardContextProvider>
+
 const DashboardExample = () => {
   return (
     <SplunkThemeProvider {...themeToVariant.prisma}>
-      <DashboardContextProvider geoRegistry={geoRegistry}>
+      <DashboardContextProvider preset={customPreset} geoRegistry={geoRegistry}>
         <DashboardCore
           width="100%"
           height="100%"
@@ -724,14 +727,16 @@ const customPreset = {
   },
 };
 
+// NOTICE: If you are on Dashboard Core versions LOWER than 25.X.X, preset will be a prop for <DashboardCore> instead of 
+// <DashboardContextProvider>
+
 const DashboardExample = () => {
   return (
     <SplunkThemeProvider {...themeToVariant.prisma}>
-      <DashboardContextProvider geoRegistry={geoRegistry}>
+      <DashboardContextProvider preset={customPreset} geoRegistry={geoRegistry}>
         <DashboardCore
           width="100%"
           height="100%"
-          preset={customPreset}
           definition={definition}
         />
       </DashboardContextProvider>
