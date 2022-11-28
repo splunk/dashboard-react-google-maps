@@ -8,4 +8,5 @@ yarn-error.log
 *.map
 *.iml
 /build
+/stage
 .cache

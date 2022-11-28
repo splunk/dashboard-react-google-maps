@@ -12,6 +12,10 @@
     "test": "lerna run test --stream --no-sort"
   },
   "dependencies": {},
+  "resolutions": {
+    "node-fetch": "2.6.7",
+    "@xmldom/xmldom": "0.7.7"
+  },
   "devDependencies": {
     "lerna": "^2.9.0",
     "prettier": "^2.0.5"

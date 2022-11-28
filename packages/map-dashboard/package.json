@@ -19,6 +19,10 @@
     "@splunk/dashboard-presets": "^24.8.0",
     "@splunk/visualization-context": "^24.6.0"
   },
+  "resolutions": {
+    "node-fetch": "2.6.7",
+    "@xmldom/xmldom": "0.7.7"
+  },
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@splunk/babel-preset": "^3.0.0",

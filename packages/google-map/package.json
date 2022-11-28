@@ -24,6 +24,9 @@
     "@splunk/themes": "^0.8.0",
     "react-google-maps": "^9.4.5"
   },
+  "resolutions": {
+    "node-fetch": "2.6.7"
+  },
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@splunk/babel-preset": "^3.0.0",
