@@ -28,7 +28,7 @@
     "@splunk/babel-preset": "^3.0.0",
     "@splunk/eslint-config": "^4.0.0",
     "@splunk/google-map": "^0.0.1",
-    "@splunk/react-page": "^5.1.0",
+    "@splunk/react-page": "^6.1.0",
     "@splunk/react-ui": "^4.3.0",
     "@splunk/splunk-utils": "^2.1.0",
     "@splunk/stylelint-config": "^4.0.0",
