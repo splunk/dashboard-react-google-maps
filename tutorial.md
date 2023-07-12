@@ -733,12 +733,14 @@ const customPreset = {
 const DashboardExample = () => {
   return (
     <SplunkThemeProvider {...themeToVariant.prisma}>
-      <DashboardContextProvider preset={customPreset} geoRegistry={geoRegistry}>
-        <DashboardCore
-          width="100%"
-          height="100%"
-          definition={definition}
-        />
+      <DashboardContextProvider 
+        preset={customPreset}
+        geoRegistry={geoRegistry}
+        initialDefinition={definition}>
+          <DashboardCore
+            width="100%"
+            height="100%"
+          />
       </DashboardContextProvider>
     </SplunkThemeProvider>
   );
