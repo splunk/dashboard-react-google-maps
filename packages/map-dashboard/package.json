@@ -14,10 +14,11 @@
     "stylelint": "stylelint \"src/**/*.{js,jsx}\" --config stylelint.config.js"
   },
   "dependencies": {
-    "@splunk/dashboard-context": "^24.8.0",
-    "@splunk/dashboard-core": "^24.8.0",
-    "@splunk/dashboard-presets": "^24.8.0",
-    "@splunk/visualization-context": "^24.6.0"
+    "@splunk/dashboard-context": "^26.0.0",
+    "@splunk/dashboard-core": "^26.0.0",
+    "@splunk/dashboard-presets": "^26.0.0",
+    "@splunk/visualizations": "^25.9.0",
+    "@splunk/visualization-context": "^25.9.0"
   },
   "resolutions": {
     "node-fetch": "2.6.7",
