@@ -1089,7 +1089,7 @@
   dependencies:
     tslib "^2.0.0"
 
-"@dnd-kit/core@^6.0.5":
+"@dnd-kit/core@6.0.8", "@dnd-kit/core@^6.0.5":
   version "6.0.8"
   resolved "https://registry.yarnpkg.com/@dnd-kit/core/-/core-6.0.8.tgz#040ae13fea9787ee078e5f0361f3b49b07f3f005"
   integrity sha512-lYaoP8yHTQSLlZe6Rr9qogouGUz9oRUj4AHhDQGQzq/hqaJRpFo65X+JKsdHf8oUFBzx5A+SJPUvxAwTF2OabA==
@@ -1098,7 +1098,7 @@
     "@dnd-kit/utilities" "^3.2.1"
     tslib "^2.0.0"
 
-"@dnd-kit/sortable@^7.0.1":
+"@dnd-kit/sortable@7.0.2", "@dnd-kit/sortable@^7.0.1":
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/@dnd-kit/sortable/-/sortable-7.0.2.tgz#791d550872457f3f3c843e00d159b640f982011c"
   integrity sha512-wDkBHHf9iCi1veM834Gbk1429bd4lHX4RpAwT0y2cHLf246GAvU2sVw/oxWNpPKQNQRQaeGXhAVgrOl1IT+iyA==
@@ -1106,7 +1106,7 @@
     "@dnd-kit/utilities" "^3.2.0"
     tslib "^2.0.0"
 
-"@dnd-kit/utilities@^3.2.0", "@dnd-kit/utilities@^3.2.1":
+"@dnd-kit/utilities@3.2.1", "@dnd-kit/utilities@^3.2.0", "@dnd-kit/utilities@^3.2.1":
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/@dnd-kit/utilities/-/utilities-3.2.1.tgz#53f9e2016fd2506ec49e404c289392cfff30332a"
   integrity sha512-OOXqISfvBw/1REtkSK2N3Fi2EQiLMlWUlqnOK/UpOISqBZPWpE6TqL+jcPtMOkE8TqYGiURvRdPSI9hltNUjEA==
@@ -1967,15 +1967,28 @@
     lodash "^4.17.14"
     prop-types "^15.6.2"
 
-"@splunk/react-page@^5.1.0":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@splunk/react-page/-/react-page-5.2.1.tgz#c30e716b30581a96a61381572bc0e43886b1efee"
-  integrity sha512-gbqziOy9MllLoLR/irFTRcCMfWMKindU6EJwRVhUqzaLOeJUOcJ0KHvCz+DKMUycW3APnzLSoOwQ7F3/FIU4wA==
+"@splunk/react-icons@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@splunk/react-icons/-/react-icons-4.0.2.tgz#40e16e95354b8276a551d7b796b916d8999a3c20"
+  integrity sha512-/zadOh+aPyrQojVky+PM/LQexe5uUqMXQc1RK7ckMCygzI7GfkEdmy3uZIoRPD9INGbHbXuEm7yCloZwGgKUYQ==
   dependencies:
-    "@splunk/react-ui" "^4.6.0"
-    "@splunk/splunk-utils" "^2.1.0"
-    "@splunk/themes" "^0.10.1"
-    "@splunk/ui-utils" "^1.4.0"
+    "@splunk/ui-utils" "^1.6.0"
+    "@types/lodash" "^4.14.156"
+    "@types/react" "^16.9.38"
+    "@types/react-dom" "^16.9.8"
+    "@types/styled-components" "^5.1.0"
+    lodash "^4.17.14"
+    prop-types "^15.6.2"
+
+"@splunk/react-page@^6.3.2":
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/@splunk/react-page/-/react-page-6.3.2.tgz#5a0b5e641caa7b8ba02eb5a0bb4bb29a82cfcb0e"
+  integrity sha512-BbZ4ZMGEzDRlzEy5wNJE9kAuSnZlLsTmjYMNwiucqf7WEgjxlqGPs9Pyl6nCofCketwy6BYzkvpbZT5MLODuzQ==
+  dependencies:
+    "@splunk/react-ui" "^4.21.1"
+    "@splunk/splunk-utils" "^2.3.4"
+    "@splunk/themes" "^0.16.3"
+    "@splunk/ui-utils" "^1.6.0"
     prop-types "^15.6.2"
     scriptjs "^2.5.8"
 
@@ -2035,29 +2048,31 @@
     lodash "^4.17.19"
     prop-types "^15.6.0"
 
-"@splunk/react-ui@^4.0.0", "@splunk/react-ui@^4.11.0", "@splunk/react-ui@^4.16.3", "@splunk/react-ui@^4.17.0", "@splunk/react-ui@^4.17.1", "@splunk/react-ui@^4.2.0", "@splunk/react-ui@^4.3.0", "@splunk/react-ui@^4.5.3", "@splunk/react-ui@^4.6.0":
-  version "4.18.0"
-  resolved "https://registry.yarnpkg.com/@splunk/react-ui/-/react-ui-4.18.0.tgz#82cfd08705204e1f7eb5eb393ea037197cae7573"
-  integrity sha512-JmWISfOoYX3s5kUGKXe1xK92Mqn+zmhp6m7p6owXwAL9Zu/E/yx370sGYR1BZt7tAwTvZruQMO/ci3rbzXtNaA==
+"@splunk/react-ui@^4.0.0", "@splunk/react-ui@^4.11.0", "@splunk/react-ui@^4.16.3", "@splunk/react-ui@^4.17.0", "@splunk/react-ui@^4.17.1", "@splunk/react-ui@^4.2.0", "@splunk/react-ui@^4.21.1", "@splunk/react-ui@^4.3.0", "@splunk/react-ui@^4.5.3":
+  version "4.21.1"
+  resolved "https://registry.yarnpkg.com/@splunk/react-ui/-/react-ui-4.21.1.tgz#a84412ab786d0409a61da86ae950fc8a4c200e01"
+  integrity sha512-rrDsaBTya9OEbLIE57XAIgx986F2+iWm3peiW3Ep6JirL4EGUp7Hk6+pnqAWzi/s08/ZEN7S+r8FOXTjHeZkUg==
   dependencies:
-    "@splunk/react-icons" "^4.0.1"
-    "@splunk/themes" "^0.16.1"
+    "@dnd-kit/core" "6.0.8"
+    "@dnd-kit/sortable" "7.0.2"
+    "@dnd-kit/utilities" "3.2.1"
+    "@splunk/react-icons" "^4.0.2"
+    "@splunk/themes" "^0.16.3"
     "@splunk/ui-utils" "^1.6.0"
-    "@types/commonmark" "^0.27.0"
+    "@types/commonmark" "^0.27.6"
     "@types/lodash" "^4.14.156"
     "@types/react" "^16.9.38"
     "@types/react-dom" "^16.9.8"
     "@types/react-resize-detector" "^3.1.1"
     "@types/styled-components" "^5.1.0"
     "@types/tinycolor2" "^1.4.2"
-    commonmark "^0.27.0"
+    commonmark "^0.30.0"
     commonmark-react-renderer "^4.3.2"
     decimal.js-light "^2.2.3"
     lodash "^4.17.14"
     moment "^2.29.4"
     prop-types "^15.6.2"
     react-resize-detector "^3.2.1"
-    react-sortable-hoc "^1.11.0"
     react-spring "9.2.4"
     tinycolor2 "^1.4.1"
     use-typed-event-listener "^3.0.0"
@@ -2102,7 +2117,7 @@
     lodash "^4.17.14"
     rxjs "^5.4.2"
 
-"@splunk/splunk-utils@^2.0.0", "@splunk/splunk-utils@^2.1.0", "@splunk/splunk-utils@^2.2.4", "@splunk/splunk-utils@^2.3.1", "@splunk/splunk-utils@^2.3.2":
+"@splunk/splunk-utils@^2.0.0", "@splunk/splunk-utils@^2.1.0", "@splunk/splunk-utils@^2.2.4", "@splunk/splunk-utils@^2.3.1", "@splunk/splunk-utils@^2.3.2", "@splunk/splunk-utils@^2.3.4":
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/@splunk/splunk-utils/-/splunk-utils-2.3.4.tgz#0c86aba8c0c18ce341f04d2d7b38584cfa52befc"
   integrity sha512-Bdty5Xd5HmIWKm87Ym6HiD1pzMJ5dd86+ISseoP9tyRXgXr1hXYStZO5+kEqDNbeqQG3LPynDzsvf0tb/0gsTw==
@@ -2120,19 +2135,6 @@
     stylelint-config-standard "^19.0.0"
     stylelint-config-styled-components "^0.1.1"
     stylelint-processor-styled-components "^1.9.0"
-
-"@splunk/themes@^0.10.1":
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/@splunk/themes/-/themes-0.10.1.tgz#3e465c6f3143e10e610a1a971b993a61dc9ac61e"
-  integrity sha512-MjpIddvPixTlt53REgwPQ10bcQ5iFn5aG+4HSIqtxMJuXAoLZTN9WooDLadw8nra0wZ4WruitKnUj1sAkTdDcw==
-  dependencies:
-    "@types/lodash" "^4.14.156"
-    "@types/react" "^16.9.38"
-    "@types/styled-components" "^5.1.0"
-    "@types/tinycolor2" "^1.4.2"
-    color-blend "^2.0.9"
-    lodash "^4.17.14"
-    tinycolor2 "^1.4.1"
 
 "@splunk/themes@^0.12.0":
   version "0.12.0"
@@ -2160,10 +2162,10 @@
     lodash "^4.17.14"
     tinycolor2 "^1.4.1"
 
-"@splunk/themes@^0.16.0", "@splunk/themes@^0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@splunk/themes/-/themes-0.16.1.tgz#36b787b9297525d4079dafff86c21ebd6766898d"
-  integrity sha512-hBcdodLP/IyGFJiVm6PkVw2Qq5x6otLY83F4ZOLSGOKbkPauI18RULJ9nks6l6yU3vFYun0oT68Xor6ufPt7SQ==
+"@splunk/themes@^0.16.0", "@splunk/themes@^0.16.3":
+  version "0.16.3"
+  resolved "https://registry.yarnpkg.com/@splunk/themes/-/themes-0.16.3.tgz#16be364ca2ddd791b5576f03fd27f3ea139297b5"
+  integrity sha512-IAfZ2w19MzY9D8i+zpLe8BsZmB3sdOUEQLYCja9g2PpMcrEFpFRLzzAaV48am+L5tBueT/JTogcysYJI2+bmTg==
   dependencies:
     "@types/lodash" "^4.14.156"
     "@types/react" "^16.9.38"
@@ -2440,10 +2442,10 @@
   dependencies:
     "@babel/types" "^7.20.7"
 
-"@types/commonmark@^0.27.0":
-  version "0.27.6"
-  resolved "https://registry.yarnpkg.com/@types/commonmark/-/commonmark-0.27.6.tgz#9836539fc11d3f37d48e54fc5c07f9856d0a1c40"
-  integrity sha512-t3S2hOtSSuBp1H5PTFmekGFu9U9LBzGvHy93zHwusvj4RIGUrBQ4zHvw49CkJtAl6fZvsadKhYbv8WTxJLbBmw==
+"@types/commonmark@^0.27.6":
+  version "0.27.7"
+  resolved "https://registry.yarnpkg.com/@types/commonmark/-/commonmark-0.27.7.tgz#33988a7736339033c6ab47340342ea16dc1a740d"
+  integrity sha512-C+3GPp7Ue5EgoJll7EGuglyN6bkQMPp591hjWF9RDU/slHmvtqg4DpN8QKMaP2TlwNQVb85uY0t9MKlY/btIVg==
 
 "@types/geojson@*", "@types/geojson@^7946.0.10":
   version "7946.0.10"
@@ -4278,14 +4280,14 @@ commonmark-react-renderer@^4.3.2:
     pascalcase "^0.1.1"
     xss-filters "^1.2.6"
 
-commonmark@^0.27.0:
-  version "0.27.0"
-  resolved "https://registry.yarnpkg.com/commonmark/-/commonmark-0.27.0.tgz#d86c262b962821e9483c69c547bc58840c047b34"
-  integrity sha512-nHdZE2hDhygZgTuuIAD4+Q5cAa2zRzhZyG3e1Jt8I1RSRVarZhJosLMW+tzyCg2frndTKOgQlmjH/iRe4Giqhw==
+commonmark@^0.30.0:
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/commonmark/-/commonmark-0.30.0.tgz#38811dc7bbf0f59d277ae09054d4d73a332f2e45"
+  integrity sha512-j1yoUo4gxPND1JWV9xj5ELih0yMv1iCWDG6eEQIPLSWLxzCXiFoyS7kvB+WwU+tZMf4snwJMMtaubV0laFpiBA==
   dependencies:
-    entities "~ 1.1.1"
-    mdurl "~ 1.0.1"
-    minimist "~ 1.2.0"
+    entities "~2.0"
+    mdurl "~1.0.1"
+    minimist ">=1.2.2"
     string.prototype.repeat "^0.2.0"
 
 compare-func@^1.3.1:
@@ -5467,7 +5469,7 @@ enquirer@^2.3.5:
   dependencies:
     ansi-colors "^4.1.1"
 
-entities@^1.1.1, "entities@~ 1.1.1":
+entities@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.2.tgz#bdfa735299664dfafd34529ed4f8522a275fea56"
   integrity sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==
@@ -5481,6 +5483,11 @@ entities@^4.2.0, entities@^4.4.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/entities/-/entities-4.5.0.tgz#5d268ea5e7113ec74c4d033b79ea5a35a488fb48"
   integrity sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==
+
+entities@~2.0:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/entities/-/entities-2.0.3.tgz#5c487e5742ab93c15abb5da22759b8590ec03b7f"
+  integrity sha512-MyoZ0jgnLvB2X3Lg5HqpFmn1kybDiIfEQmKzTb5apr51Rb+T3KdmMiqa70T+bhGnyv7bQ6WMj2QMHpGMmlrUYQ==
 
 enzyme-adapter-react-16@^1.15.2:
   version "1.15.7"
@@ -7376,7 +7383,7 @@ interpret@^1.4.0:
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
   integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
 
-invariant@^2.2.1, invariant@^2.2.4:
+invariant@^2.2.1:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -8991,7 +8998,7 @@ mdast-util-to-string@^2.0.0:
   resolved "https://registry.yarnpkg.com/mdast-util-to-string/-/mdast-util-to-string-2.0.0.tgz#b8cfe6a713e1091cb5b728fc48885a4767f8b97b"
   integrity sha512-AW4DRS3QbBayY/jJmD8437V1Gombjf8RSOUCMFBuo5iHi58AGEgVCKQ+ezHkZZDpAQS75hcBMpLqjpJTjtUL7w==
 
-"mdurl@~ 1.0.1":
+mdurl@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   integrity sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==
@@ -9217,15 +9224,15 @@ minimist-options@^3.0.1:
     arrify "^1.0.1"
     is-plain-obj "^1.1.0"
 
+minimist@>=1.2.2, minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.5, minimist@^1.2.6, minimist@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.8.tgz#c1a464e7693302e082a075cee0c057741ac4772c"
+  integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
+
 minimist@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.1.0.tgz#99df657a52574c21c9057497df742790b2b4c0de"
   integrity sha512-wR5Ipl99t0mTGwLjQJnBjrP/O7zBbLZqvA3aw32DmLx+nXHfWctUjzDjnDx09pX1Po86WFQazF9xUzfMea3Cnw==
-
-minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.5, minimist@^1.2.6, minimist@^1.2.8, "minimist@~ 1.2.0":
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.8.tgz#c1a464e7693302e082a075cee0c057741ac4772c"
-  integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
 
 mississippi@^2.0.0:
   version "2.0.0"
@@ -10323,7 +10330,7 @@ prop-types-exact@^1.2.0:
     object.assign "^4.1.0"
     reflect.ownkeys "^0.2.0"
 
-prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -10618,15 +10625,6 @@ react-resize-detector@^3.2.1:
     lodash-es "^4.17.11"
     prop-types "^15.6.2"
     resize-observer-polyfill "^1.5.1"
-
-react-sortable-hoc@^1.11.0:
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/react-sortable-hoc/-/react-sortable-hoc-1.11.0.tgz#fe4022362bbafc4b836f5104b9676608a40a278f"
-  integrity sha512-v1CDCvdfoR3zLGNp6qsBa4J1BWMEVH25+UKxF/RvQRh+mrB+emqtVHMgZ+WreUiKJoEaiwYoScaueIKhMVBHUg==
-  dependencies:
-    "@babel/runtime" "^7.2.0"
-    invariant "^2.2.4"
-    prop-types "^15.5.7"
 
 react-spring@9.2.4:
   version "9.2.4"
